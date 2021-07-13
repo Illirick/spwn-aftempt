@@ -8,7 +8,7 @@ You need to put folder aftempt in the same folder of your project and then impor
 aft = import aftempt
 ```
 
-After that you need to run the function in that you need to run the function `aft.init([functions])`
+After that you need to run the function `aft.init([functions])`
 
 Parameter     | Description
 :------------:|:------------------------------------------------------------------------------------------------------:
