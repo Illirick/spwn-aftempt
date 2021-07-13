@@ -1,7 +1,7 @@
 # spwn aftempt
 Library witten in spwn that is made to store data between attempts or do something in later attmept.
 ## Usage
-You need to put folder aftempts in the same folder of your project and then import it
+You need to put folder aftempt in the same folder of your project and then import it
 ```spwn
 aft = import aftempt
 ```
