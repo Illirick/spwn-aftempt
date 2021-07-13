@@ -4,7 +4,7 @@ extract $
 BLOCK_HEIGHT = 30 * 15 * 5 + 15
 
 return {
-	bind: (functions: [@trigger_function], initially_off = true, invisigroup = ?g) {
+	init: (functions: [@trigger_function], initially_off = true, invisigroup = ?g) {
 		main_block_group = ?g
 
 		main_block = ?b
