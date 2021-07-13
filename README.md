@@ -8,15 +8,6 @@ You need to put folder aftempt in the same folder of your project and then impor
 aft = import aftempt
 ```
 
-After that you need to run the function `aft.init([functions])`
+After that you need to run the function `aft.init([functions])` and it will return groups of death triggers. So, for example if you activate second death trigger in that array then the second function in your array that you passed as argument will be executed every attempt after the current one. You can also pass the group that you use for invisible objects as your second argugent so script won't create extra one
 
-Parameter     | Description
-:------------:|:------------------------------------------------------------------------------------------------------:
-functions     | Array of functions that will be executed once player dies
-invisigroup   | Group for invisible objects. In case you have your own
-initially_off | Wheather the death triggers should be always active or they need to be triggered in your program
-
-It returns the list of death triggers groups
-
-
-You can also build the example script to see it in action
+You can also build the example script to see this library in action
