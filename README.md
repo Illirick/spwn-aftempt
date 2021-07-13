@@ -11,7 +11,7 @@ After that you need to run the function in that you need to run the function `af
 Parameter     | Description
 :------------:|:------------------------------------------------------------------------------------------------------:
 functions     | Array of functions that will be executed once player dies
-invisigroup   | Group for invisible object. In case you have your own one
+invisigroup   | Group for invisible objects. In case you have your own
 initially_off | Wheather the death triggers should be always active or they need to be triggered in your program
 
 It returns the list of death triggers groups
