@@ -1,0 +1,111 @@
+extract obj_props
+extract $
+
+BLOCK_HEIGHT = 30 * 15 * 5 + 15
+
+return {
+	bind: (functions: [@trigger_function], initially_off = true, invisigroup = ?g) {
+		main_block_group = ?g
+
+		main_block = ?b
+
+		invisigroup.alpha(0)
+		main_block_group.move(40, 0, 0)
+
+		death_triggers_groups = []
+
+		for i in ..functions.length {
+			block_1 = ?b
+			block_2 = ?b
+
+			block_1_group = ?g
+			block_2_group = ?g
+
+			death_trigger_group = ?g
+
+			on_death_group = ?g
+			move_block_2_group = ?g
+
+			// blocks
+			add(obj{
+				OBJ_ID: 1816,
+				DYNAMIC_BLOCK: true,
+				BLOCK_A: main_block,
+				X: 15 + 30 * 6 * i,
+				Y: BLOCK_HEIGHT,
+				GROUPS: [invisigroup, main_block_group]
+			})
+			add(obj{
+				OBJ_ID: 1816,
+				DYNAMIC_BLOCK: false,
+				BLOCK_A: block_1,
+				X: 135 + 30 * 6 * i,
+				Y: BLOCK_HEIGHT,
+				GROUPS: [invisigroup, block_1_group]
+			})
+			add(obj{
+				OBJ_ID: 1816,
+				DYNAMIC_BLOCK: false,
+				BLOCK_A: block_2,
+				X: 135 + 30 * 6 * i,
+				Y: BLOCK_HEIGHT,
+				GROUPS: [invisigroup, block_2_group]
+			})
+			//collisions
+			on(collision(main_block, block_1), !{
+				block_2_group.toggle_off()
+			})
+			on(collision(main_block, block_2), !{
+				block_1_group.toggle_off()
+				functions[i]!
+			})
+
+			add( obj{
+				X: 45,
+				Y: 30 * 13 * 5 + 15 - 30 * i,
+				OBJ_ID: 901,
+            	TARGET: block_1_group,
+            	MOVE_X: 500 * 30,
+            	DURATION: 0,
+				SPAWN_TRIGGERED: true,
+				GROUPS: [on_death_group]
+			})
+			add( obj{
+				X: 75,
+				Y: 30 * 13 * 5 + 15 - 30 * i,
+				OBJ_ID: 1268,
+				SPAWN_DURATION: 1.06,
+				TARGET: move_block_2_group,
+				SPAWN_TRIGGERED: true,
+				GROUPS: [on_death_group]
+			})
+			add( obj{
+				X: 105,
+				Y: 30 * 13 * 5 + 15 - 30 * i,
+				OBJ_ID: 901,
+            	TARGET: block_2_group,
+            	MOVE_X: 500 * 30,
+            	DURATION: 0,
+				SPAWN_TRIGGERED: true,
+				GROUPS: [move_block_2_group]
+			})
+
+			// i could've make it with death event but the trigger needs to be in a specific group
+			// also for that reason it needs to be obj rather than trigger so i can't use funtion as a target
+			// so yeah i love this language
+			add( obj{
+				X:0,
+				Y:30 * 12 * 5 + 15 - 30 * i,
+				OBJ_ID: 1812,
+                ACTIVATE_GROUP: true,
+                TARGET: on_death_group,
+				SPAWN_TRIGGERED: initially_off,
+				GROUPS: [death_trigger_group]
+			})
+
+			death_triggers_groups.push(death_trigger_group)
+		}
+
+		return death_triggers_groups
+	}
+}

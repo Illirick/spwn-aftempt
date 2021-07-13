@@ -1,0 +1,72 @@
+extract obj_props
+
+aft = import aftemp
+
+spike_group = ?g
+saw_group = ?g
+
+saw_group.toggle_off()
+
+first_function = !{
+    spike_group.toggle_off()
+}
+second_function = !{
+    saw_group.toggle_on()
+}
+
+groups = aft.bind([first_function, second_function])
+
+$.add( obj{
+    OBJ_ID: 1275,
+    X:30 * (5 + 0.5),
+    Y:30 * (2 + 0.5),
+    ACTIVATE_GROUP: true,
+    PICKUP_MODE: 2,
+    TARGET: groups[0]
+})
+$.add( obj{
+    OBJ_ID: 1598,
+    X:30 * (5 + 0.5),
+    Y: 15,
+    ACTIVATE_GROUP: true,
+    PICKUP_MODE: 2,
+    TARGET: groups[1]
+})
+$.add( obj{
+    OBJ_ID: 1,
+    X:30 * (5 + 0.5),
+    Y:30 * (1 + 0.5)
+})
+$.add( obj{
+    OBJ_ID: 1,
+    X:30 * (6 + 0.5),
+    Y:30 * (3 + 0.5)
+})
+$.add( obj{
+    OBJ_ID: 1,
+    X:30 * (6 + 0.5),
+    Y:30 * (4 + 0.5)
+})
+$.add( obj{
+    OBJ_ID: 8,
+    X:30 * (6 + 0.5),
+    Y: 15
+})
+$.add( obj{
+    OBJ_ID: 8,
+    X:30 * (7 + 0.5),
+    Y: 15,
+    GROUPS: [spike_group]
+})
+$.add( obj{
+    OBJ_ID: 8,
+    X:30 * (8 + 0.5),
+    Y: 15,
+    GROUPS: [spike_group]
+})
+$.add( obj{
+    OBJ_ID: 88,
+    X:30 * (3 + 0.5),
+    Y:30 * (1 + 0.5),
+    GROUPS: [saw_group]
+})
