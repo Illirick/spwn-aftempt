@@ -15,3 +15,6 @@ invisigroup   | Group for invisible objects. In case you have your own
 initially_off | Wheather the death triggers should be always active or they need to be triggered in your program
 
 It returns the list of death triggers groups
+
+
+You can also build the example project to see it in action
