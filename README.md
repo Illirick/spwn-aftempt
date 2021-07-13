@@ -17,4 +17,4 @@ initially_off | Wheather the death triggers should be always active or they need
 It returns the list of death triggers groups
 
 
-You can also build the example project to see it in action
+You can also build the example script to see it in action
