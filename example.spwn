@@ -1,6 +1,6 @@
 extract obj_props
 
-aft = import aftemp
+aft = import aftempt
 
 spike_group = ?g
 saw_group = ?g
