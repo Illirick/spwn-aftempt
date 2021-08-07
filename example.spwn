@@ -14,7 +14,7 @@ second_function = !{
     saw_group.toggle_on()
 }
 
-groups = aft.bind([first_function, second_function])
+groups = aft.init([first_function, second_function])
 
 $.add( obj{
     OBJ_ID: 1275,
